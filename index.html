@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="container" id="auth-container">
+        <div class="auth-form">
+            <h2>Admin Login</h2>
+            <input type="email" id="login-email" placeholder="Admin Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display: none;">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <h1>Admin Dashboard</h1>
+            <button onclick="logout()">Logout</button>
+        </nav>
+
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <button class="active" onclick="showSection('dashboard')">Dashboard</button>
+                    <button onclick="showSection('users')">Users</button>
+                    <button onclick="showSection('analytics')">Analytics</button>
+                    <button onclick="showSection('settings')">Settings</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <canvas id="userChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <canvas id="locationChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search users...">
+                </div>
+
+                <div class="table-container">
+                    <table id="user-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Address</th>
+                                <th>Postal Code</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-data"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
